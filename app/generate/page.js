@@ -138,12 +138,13 @@ export default function Generate() {
   return( 
     <ThemeProvider theme={theme}>
     <Container maxWidth="100vw">
-      <AppBar position="static" sx={{ mb: 4 }}>
+      <AppBar position="static" sx={{ mb: 4, borderRadius: '16px' }}>
           <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase' }}>
           FlashPass
           </Typography>
             <SignedOut>
+            <Button color="inherit" href="/">Home</Button>
               <Button color="inherit" href="/sign-in">Login</Button>
               <Button color="inherit" href="/sign-up">Sign Up</Button>
             </SignedOut>
@@ -263,11 +264,20 @@ export default function Generate() {
               </Grid>
             ))}
           </Grid>
+          <SignedOut>
           <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
-            <Button variant='contained' color='secondary' onClick={handleOpen}>
+            <Button variant='contained' color='secondary' href='/sign-up' sx={{mb: 4}}>
+              Create an Account to Save!
+            </Button>
+          </Box>
+          </SignedOut>
+          <SignedIn>
+          <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
+            <Button variant='contained' color='secondary' onClick={handleOpen} sx={{mb: 4}}>
               Save
             </Button>
           </Box>
+          </SignedIn>
         </Box>
       )}
 

@@ -101,7 +101,7 @@ useEffect(() => {
     return <>
     <ThemeProvider theme={theme}>
     <Container maxWidth="100vw">
-      <AppBar position="static" sx={{ mb: 4 }}>
+      <AppBar position="static" sx={{ mb: 4, borderRadius: '16px' }}>
           <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase' }}>
             FlashPass
@@ -111,7 +111,8 @@ useEffect(() => {
               <UserButton />
           </Toolbar>
         </AppBar>
-    <Typography variant="h3">Flashcards Preview</Typography>
+        <Container maxWidth='100vw'>
+    <Typography variant="h3">Flashcard Preview</Typography>
     <Grid container spacing={3} sx={{ mt: 4 }}>
     {flashcards.map((flashcard, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
@@ -179,11 +180,12 @@ useEffect(() => {
                         </Box>
                       </div>
                     </Box>
+                    
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
           ))}
     </Grid>
-  </Container></ThemeProvider></>
+    </Container> </Container></ThemeProvider></>
   }}

@@ -48,8 +48,12 @@ const theme = createTheme({
       color: '#1e88e5',
     },
     h5: {
-      fontWeight: 500,
-      color: '#424242',
+      fontWeight: 600,
+      color: '#1e88e5',
+    },
+    h4: {
+        fontWeight: 500,
+        color: '#424242',
     },
     body1: {
       fontSize: '1rem',
@@ -102,7 +106,7 @@ export default function Flashcards() {
     return (
       <ThemeProvider theme={theme}>
       <Container maxWidth="100vw">
-        <AppBar position="static" sx={{ mb: 4 }}>
+        <AppBar position="static" sx={{ mb: 4, borderRadius: '16px' }}>
             <Toolbar>
             <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase' }}>
             FlashPass
@@ -112,20 +116,22 @@ export default function Flashcards() {
                 <UserButton />
             </Toolbar>
           </AppBar>
+          <Container maxWidth='100vw'>
       <Typography variant='h3'>Saved Flashcards Lists</Typography>
-      <Grid container spacing={3} sx={{ mt: 4 }}>
+      <Grid container spacing={4} sx={{ mt: 4 }}>
         {flashcards.map((flashcard, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card>
               <CardActionArea onClick={() => handleCardClick(flashcard.name)}>
                 <CardContent>
-                  <Typography variant='h6'> {flashcard.name}</Typography>
+                  <Typography variant='h5'> {flashcard.name}</Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
           </Grid>
         ))}
       </Grid>
+      </Container>
     </Container>
     </ThemeProvider>
   )

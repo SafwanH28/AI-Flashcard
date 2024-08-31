@@ -1,19 +1,66 @@
+'use client'
 import React from 'react';
+import { ThemeProvider, createTheme } from '@mui/material'
 import { Container, Box, Typography, AppBar, Toolbar, Button, Paper } from '@mui/material';
 import { SignIn } from '@clerk/nextjs';
 import Link from 'next/link';
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1e88e5', // Blue
+    },
+    secondary: {
+      main: '#f50057', // Pink
+    },
+    third: {
+      main: '#f50057', // Pink
+    },
+  },
+  typography: {
+    h2: {
+      fontWeight: 600,
+      color: '#1e88e5',
+    },
+    h4: {
+      fontSize: '32px',
+      fontWeight: 600,
+      color: '#000000',
+    },
+    h5: {
+      fontWeight: 500,
+      color: '#424242',
+    },
+    body1: {
+      fontSize: '1rem',
+      color: '#616161',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          borderRadius: '8px',
+        },
+      },
+    },
+  },
+});
+
 export default function SignUpPage() {
   return (
+    <ThemeProvider theme={theme}>
     <Container maxWidth="100vw">
-      <AppBar position="static" sx={{ backgroundColor: '#1e88e5', boxShadow: 'none' }}>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase' }}>
-            Flashcard SaaS
+          <AppBar position="static" sx={{ mb: 4, borderRadius: '16px'}}>
+          <Toolbar>
+          <Typography href="/sign-in" variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase' }}>
+            FlashPass
           </Typography>
-          <Button color="inherit" href="/sign-up">Sign Up</Button>
-        </Toolbar>
-      </AppBar>
+          <Button color="inherit" href="/">Home</Button>
+              <Button color="inherit" href="/sign-up">Sign Up</Button>
+          </Toolbar>
+        </AppBar>
 
       <Box
         display="flex"
@@ -32,5 +79,6 @@ export default function SignUpPage() {
         <SignIn />
       </Box>
     </Container>
+    </ThemeProvider>
   );
 }

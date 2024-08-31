@@ -83,9 +83,9 @@ export default function Home() {
           <meta name="description" content="Create flashcards from text" />
         </Head>
 
-        <AppBar position="static" sx={{ mb: 4 }}>
+        <AppBar position="static" sx={{ mb: 4, borderRadius: '16px'}}>
           <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase' }}>
+          <Typography href="/sign-in" variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase' }}>
             FlashPass
           </Typography>
             <SignedOut>
@@ -99,7 +99,7 @@ export default function Home() {
             </SignedIn>
           </Toolbar>
         </AppBar>
-
+        <Container maxWidth='100vw'>
         <Box sx={{ textAlign: 'center', my: 4 }}>
           <Typography variant="h2" component="h1" gutterBottom>
             Welcome to FlashPass
@@ -108,7 +108,7 @@ export default function Home() {
             The easiest way to create flashcards from your text.
           </Typography>
           <Button variant="contained" color="primary" sx={{ mt: 2, mr: 2 }} href="/generate">
-            Get Started
+            Check it Out
           </Button>
         </Box>
 
@@ -217,10 +217,8 @@ export default function Home() {
               </Card>
             </Grid>
           </Grid>
-          <Typography >www.safwanhaque.com</Typography>
-          <Typography >www.muhammedrafay.com</Typography>
-          <Typography >www.rehman-s-portfolio.vercel.app</Typography>
         </Box>
+      </Container>
       </Container>
     </ThemeProvider>
   );
